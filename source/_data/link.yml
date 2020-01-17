@@ -1,0 +1,33 @@
+class:
+  class_name: 友情链接
+  link_list:
+    1:
+      name: tr0y
+      link: https://www.tr0y.wang/
+      avatar: https://www.tr0y.wang/img/avatar.jpg
+      descr: 喜欢用 hacker 的方式思考问题
+    2:
+      name: Yellow Bee's Blog
+      link: http://www.yelbee.top/
+      avatar: https://secure.gravatar.com/avatar/51d66bff346c4c6ff1a747c08553e201?s=200&r=G&d=
+      descr: 信息安全
+    3:
+      name: 物博
+      link: https://www.wubo.net.cn/
+      avatar: https://www.wubo.net.cn/usr/themes/Akina/images/avatar.jpg
+      descr: 喜欢安全与WEB开发
+    4:
+      name: 二哈中的奇葩
+      link: https://www.erhazhongdeqipa.top/
+      avatar: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/avatar.png
+      descr: /******
+
+
+# class2:
+#   class_name: 链接无效
+#   link_list:
+#     1:
+#       name: 梦
+#       link: https://blog.xxx.com
+#       avatar: https://xxxx/avatar.png
+#       descr: xxxx
