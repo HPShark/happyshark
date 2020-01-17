@@ -304,11 +304,11 @@ related_post:
 # ---------------
 theme_color:
   enable: true
-  main: "#00AAFF"
-  paginator: "#2694BF"
+  main: "#49B1F5"
+  paginator: "#00c4b6"
   button_hover: "#FF7242"
-  text_selection: "#274073"
-  link_color: "#157EBF"
+  text_selection: "#00c4b6"
+  link_color: "#99a9bf"
   meta_color: '#858585'
   hr_color: "#A4D8FA"
   read-mode-bg_color: '#FAF9DE'
