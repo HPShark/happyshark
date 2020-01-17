@@ -607,13 +607,13 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
     - 博客源码的仓库名
 
       现在可以直接用<github用户名>%2F<博客源码仓库名>代替原来的仓库id了，不用在拿抓包工具抓仓库ID 或 扩展名了
+    
+  - 配置触发方式
 
-- ##### 配置触发方式
-  
-  ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverless设置触发方式.png)
-  
-  一般会得到这么个api：https://service-s08f6nvk-1251833201.ap-guangzhou.apigateway.myqcloud.com/release/xxx
-  
+    ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverless设置触发方式.png)
+
+    一般会得到这么个api：https://service-s08f6nvk-1251833201.ap-guangzhou.apigateway.myqcloud.com/release/xxx
+
 - 语雀配置：
 
   配置一个仓库的webhook:
@@ -660,4 +660,246 @@ more detail
 
 
 **大功告成！在语雀上正常发布一篇文章即可自动触发serverless函数提交给travis-ci构建博客**
+
+
+
+# 一些坑
+
+- serverless python版
+
+  ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverlesspython版.png)
+
+
+
+- 私人图床：onedrive
+
+  使用方法非常简单，具体步骤如下：
+
+  - 注册账户，已有的可直接略过。
+
+  - 登录OneDrive，上传需要外链的图片。
+
+  - 在图片上右键选择“嵌入”按钮，再在弹出的窗口中点击“生成”选项。
+
+  - 将链接复制到需要展示的地方。
+
+  来自 <https://osk.ink/archives/12/> 
+
+  
+
+- travis渲染时报错：
+
+  > travis /bin/bash^M: bad interpreter: No such file or directory
+  >
+  >  
+  >
+  > If you use **Sublime Text** on Windows or Mac to edit your scripts:
+  >
+  > Click on View > Line Endings > Unix and **save** the file again.
+
+  原因：编码问题，如下解决即可
+
+  ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis编码报错解决.png)
+
+  
+
+- Ubuntu安装Proxychains
+
+  Proxychains是Linux上一款全局代理工具，通过Hook Socket函数实现透明代理，这和Windows上的Proxifier有点类似。 在Ubuntu上安装Proxychains的方法是：
+
+  ```
+  apt-get install proxychains 
+  ```
+
+  安装的是3.1版本，配置文件的路径是：/etc/proxychains.conf，内容如下：
+
+  ```
+  # proxychains.conf  VER 3.1
+  #
+  #        HTTP, SOCKS4, SOCKS5 tunneling proxifier with DNS.
+  #
+  # The option below identifies how the ProxyList is treated.
+  # only one option should be uncommented at time,
+  # otherwise the last appearing option will be accepted
+  #
+  #dynamic_chain
+  #
+  # Dynamic - Each connection will be done via chained proxies
+  # all proxies chained in the order as they appear in the list
+  # at least one proxy must be online to play in chain
+  # (dead proxies are skipped)
+  # otherwise EINTR is returned to the app
+  #
+  strict_chain
+  #
+  # Strict - Each connection will be done via chained proxies
+  # all proxies chained in the order as they appear in the list
+  # all proxies must be online to play in chain
+  # otherwise EINTR is returned to the app
+  #
+  #random_chain
+  #
+  # Random - Each connection will be done via random proxy
+  # (or proxy chain, see  chain_len) from the list.
+  # this option is good to test your IDS :)
+  # Make sense only if random_chain
+  #chain_len = 2
+  # Quiet mode (no output from library)
+  #quiet_mode
+  # Proxy DNS requests - no leak for DNS data
+  proxy_dns 
+  # Some timeouts in milliseconds
+  tcp_read_time_out 15000
+  tcp_connect_time_out 8000
+  # ProxyList format
+  #       type  host  port [user pass]
+  #       (values separated by 'tab' or 'blank')
+  #
+  #
+  #        Examples:
+  #
+  #               socks5  192.168.67.78   1080    lamer   secret
+  #               http    192.168.89.3    8080    justu   hidden
+  #               socks4  192.168.1.49    1080
+  #               http    192.168.39.93   8080
+  #
+  #
+  #       proxy types: http, socks4, socks5
+  #        ( auth types supported: "basic"-http  "user/pass"-socks )
+  #
+  [ProxyList]
+  # add proxy here ...
+  # meanwile
+  # defaults set to "tor"
+  socks4         127.0.0.1 9050
+  
+  ```
+
+  Proxychains支持HTTP（HTTP-Connect）、SOCKS4和SOCKS5三种类型的代理，需要注意的是：配置代理服务器只能使用ip地址，不能使用域名，否则会连不上。
+
+  Proxychains支持3种模式： 
+
+  1. 动态模式 按照配置的代理顺序连接，不存活的代理服务器会被跳过 
+  2. 严格模式     按照配置的代理顺序连接，必须保证所有代理服务器都是存活的，否则会连接失败 
+  3. 随机模式     随机选择一台代理服务器连接，也可以使用代理链
+
+  如果不需要代理DNS的话，可以注释掉proxy_dns这行。
+
+  使用的时候在命令行前加上proxychains即可。
+
+  ```
+  root@ubuntu-pc:~# proxychains telnet [www.baidu.com](http://www.baidu.com) 80 ProxyChains-3.1 ([http://proxychains.sf.net](http://proxychains.sf.net/)) Trying 14.215.177.37… |R-chain|-<>-10.0.0.10:8080-<><>-14.215.177.37:80-<><>-OK Connected to [www.a.shifen.com](http://www.a.shifen.com). Escape character is ‘^]’. 
+  
+  proxychains命令其实是个脚本文件，内容如下：
+  
+  \#!/bin/sh
+   echo "ProxyChains-3.1 (http://proxychains.sf.net)"
+   if [ $# = 0 ] ; then
+       echo " usage:"
+       echo "     proxychains <prog> [args]"
+       exit
+   fi
+   export LD_PRELOAD=libproxychains.so.3
+   exec "$@"
+  ```
+
+  它的目的是设置LD_PRELOAD环境变量，以便创建的新进程会加载libproxychains.so.3，这个so的作用是Hook Socket函数。因此，也可以在当前shell中执行： 
+
+  ```
+  export LD_PRELOAD=libproxychains.so.3
+  ```
+
+  这样之后执行的命令都会使用代理访问。
+
+  不过这个版本有个问题，配置代理后所有的连接都会走代理，包括对回环地址的访问。这并不是我们所期望的，幸好有个版本提供了解决方案。
+
+  ```
+  git clone https://github.com/rofl0r/proxychains cd proxychains ./configure make make install 
+  ```
+
+  安装后在配置文件中加入：
+
+  ```
+  localnet 127.0.0.0/255.0.0.0 
+  ```
+
+  安装后的命令是proxychains4，因此可以和旧版本命令并存。这样对于回环地址就可以绕过代理，使用直连了。
+
+  相对于Proxifier而言，这种方式还是弱了一点，毕竟有时候我们还是需要根据不同的情况使用不同的代理服务器。
+
+  
+
+- 有东西传不到github上去？
+
+  删掉.deploy_git:
+
+  ```
+  - rm -rf .deploy_git/
+  ```
+
+
+
+- 语雀防盗链解决办法：
+
+  临时方案是直接在 html 模版中添加 head 进行绕过
+
+  ```html
+  <meta name="referrer" content="no-referrer" />
+  ```
+
+   (来自 <https://github.com/x-cold/yuque-hexo/issues/41> )
+
+  
+
+  注：对于butterfly主题的话对themes\Butterfly\layout\includes\layout.pug修改head部分即可
+
+
+
+- gem失败
+
+  apt-get install ruby-dev 
+
+
+
+- 如果使用windows子系统的Ubuntu的话，可能会出现Windows 的 Linux 子系统的文件同步和 Windows 不是实时的问题（来自 <https://www.zhihu.com/question/318832524/answer/641951256> ）
+
+  你可以在Windows下存储文件，然后在wsl中使用/mnt/盘符/路径 访问
+
+  你也可以在1903更新发布后在Linux rootfs中存储文件，Windows程序使用\\wsl$\Ubuntu\unix路径 访问
+
+  唯独不正确的操作是找到AppData里rootfs文件夹直接用Windows程序修改，因为这里面的文件在NTFS中除了存储文件内容，Windows文件元数据，还存储unix文件元数据（比如rwx权限，unix用户组和用户），你创建的文件并不具有这样的属性，因此会导致权限混乱。
+
+  详见：[https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/](https://link.zhihu.com/?target=https%3A//blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
+
+  1903（19H1，20195月更新）的改动
+
+  **Linux Files inside of File Explorer**
+
+  The best way to get started with this feature is to open your Linux files in File Explorer! To do this, open your favorite distro, make sure your current folder is your Linux home directory, and type in:
+
+  ```
+  explorer.exe .
+  ```
+
+  来自 <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/> 
+
+
+
+
+
+
+
+# 参考：
+
+- [语雀+TravisCI+Serverless]: https://segmentfault.com/a/1190000017797561
+
+- [【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析]: https://www.simon96.online/2018/10/12/hexo-tutorial/
+
+- [使用Travis CI自动部署Hexo博客]: https://www.itfanr.cc/2017/08/09/using-travis-ci-automatic-deploy-hexo-blogs/
+
+- [hexo-theme-butterfly安裝文檔]: https://jerryc.me/posts/21cfbf15/
+
+- [Hexo 博客终极玩法：云端写作，自动部署]: https://segmentfault.com/a/1190000017797561
+
+  
 
