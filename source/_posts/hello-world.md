@@ -862,6 +862,8 @@ apt-get install ruby-dev
 
 
 
+## Windows 的 Linux 子系统的文件同步和 Windows 不是实时的问题
+
 如果使用windows子系统的Ubuntu的话，可能会出现Windows 的 Linux 子系统的文件同步和 Windows 不是实时的问题（来自 <https://www.zhihu.com/question/318832524/answer/641951256> ）
 
 你可以在Windows下存储文件，然后在wsl中使用/mnt/盘符/路径 访问
