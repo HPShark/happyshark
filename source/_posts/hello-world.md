@@ -4,13 +4,13 @@ date: 2019-12-26 14:00:00
 tags: [hexo, travis CI, serverless, 语雀]
 categories: 博客
 ---
-    博客又双叒叕上线了，这次使用的是hexo + Github Pages + travis CI + 语雀 + serverless + onedrive图床，部署完成之后可以直接在语雀上编辑文章然后自动发布到博客，云端写作不是梦hhh 
+> 博客又双叒叕上线了，这次使用的是hexo + Github Pages + travis CI + 语雀 + serverless + onedrive图床，部署完成之后可以直接在语雀上编辑文章然后自动发布到博客，云端写作不是梦hhh 
 
 
 
 # 部署
 
-> 部署部分是按照博客https://www.simon96.online/2018/10/12/hexo-tutorial/配置的，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
+> 部署部分是按照博客https://www.simon96.online/2018/10/12/hexo-tutorial/ 配置的，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
 
 本地环境：windows Linux Ubuntu 18.04
 
@@ -152,14 +152,14 @@ hexo g && hexo server
      $ ssh-keygen -t rsa -C "邮箱地址"  
      ```
 
-     - 添加到 github。 复制密钥文件内容（路径形如C:\Users\Administrator\.ssh\id_rsa.pub），粘贴到[New SSH Key](https://github.com/settings/keys)即可。
+   - 添加到 github。 复制密钥文件内容（路径形如C:\Users\Administrator\.ssh\id_rsa.pub），粘贴到[New SSH Key](https://github.com/settings/keys)即可。
 
-     - 测试是否添加成功。在命令行（即Git     Bash）依次输入以下命令，返回“You’ve successfully authenticated”即成功：
+   - 测试是否添加成功。在命令行（即Git     Bash）依次输入以下命令，返回“You’ve successfully authenticated”即成功：
 
-       ```
-       $ ssh -T git@github.com  
-       $ yes  
-       ```
+     ```
+     $ ssh -T git@github.com  
+     $ yes  
+     ```
 
 4. 修改_config.yml（在站点目录下）。文件末尾修改为：
 
@@ -212,14 +212,17 @@ hexo g && hexo server
 
 # 主题，插件配置
 
-hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-butterfly)，配置信息：https://jerryc.me/posts/21cfbf15/，感谢作者~
+## 主题
 
-> 插件部分引自博客https://www.simon96.online/2018/10/12/hexo-tutorial/，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
->
-
-## live2d
+hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-butterfly)，配置信息：https://jerryc.me/posts/21cfbf15/ ，感谢作者~
 
 
+
+## 插件
+
+> 插件部分引自博客https://www.simon96.online/2018/10/12/hexo-tutorial/ ，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
+
+### live2d
 
 - 安装插件
 
@@ -352,7 +355,7 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
 ## 语雀云端写作+腾讯云serverless提交+ Travis-ci自动构建+github-pages发布
 
-> 实现语雀云端协作部分引自博客https://www.itfanr.cc/2017/08/09/using-travis-ci-automatic-deploy-hexo-blogs/以及[https://aqpcet.coding.me/%E8%AF%AD%E9%9B%80+TravisCI+Serverless/3689364350.html](https://aqpcet.coding.me/语雀+TravisCI+Serverless/3689364350.html)，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
+> 实现语雀云端协作部分引自博客https://www.itfanr.cc/2017/08/09/using-travis-ci-automatic-deploy-hexo-blogs/ 以及https://aqpcet.coding.me/%E8%AF%AD%E9%9B%80+TravisCI+Serverless/3689364350.html ，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
 
 
 
