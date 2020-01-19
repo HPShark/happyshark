@@ -1,10 +1,8 @@
 ---
 title: hexo博客上线
 date: 2019-12-26 14:00:00
-tags:
-    - hexo
-    - travis CI
-    - 语雀
+tags: [hexo, travis CI, serverless, 语雀]
+categories: 博客
 ---
     博客又双叒叕上线了，这次使用的是hexo + Github Pages + travis CI + 语雀 + serverless + onedrive图床，部署完成之后可以直接在语雀上编辑文章然后自动发布到博客，云端写作不是梦hhh 
 
@@ -16,201 +14,199 @@ tags:
 
 本地环境：windows Linux Ubuntu 18.04
 
-- （可选）配置git
+## （可选）配置git
 
-  首先我得重新在git设置一下身份的名字和邮箱（因为当初都忘了设置啥了，因为遇到坑了）进入到需要提交的文件夹底下（因为直接打开git Bash，在没有路径的情况下，根本没！法！改！刚使用git时遇到的坑。。。）
+首先我得重新在git设置一下身份的名字和邮箱（因为当初都忘了设置啥了，因为遇到坑了）进入到需要提交的文件夹底下（因为直接打开git Bash，在没有路径的情况下，根本没！法！改！刚使用git时遇到的坑。。。）
 
-  ```
-  git config --global user.name "yourname"
-  git config --global user.email“your@email.com"
-  ```
+```
+git config --global user.name "yourname"
+git config --global user.email“your@email.com"
+```
 
-  注：yourname是你要设置的名字，your@email是你要设置的邮箱。
+注：yourname是你要设置的名字，your@email是你要设置的邮箱。
 
-- 安装 Node.js和npm
+## 安装 Node.js和npm
 
-  ```
-  sudo apt-get update
-  sudo apt-get install nodejs
-  sudo apt-get install npm
-  ```
+```
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+```
 
-  如果报错,请更改软件源--清华大学开源软件源,并更新
+如果报错,请更改软件源--清华大学开源软件源,并更新
 
-  注：查看nodejs和npm版本号
+注：查看nodejs和npm版本号
 
-  ```
-  nodejs -v
-  npm -v
-  ```
+```
+nodejs -v
+npm -v
+```
 
-  可以正常打印版本号说明,安装成功
+可以正常打印版本号说明,安装成功
 
-- 安装 Hexo
+## 安装 Hexo
 
-  - 创建博客所在目录
+1. 创建博客所在目录
 
-     ```
-     mkdir hexo 
-     ```
+   ```
+   mkdir hexo 
+   ```
 
-  - 创建目录
+2. 创建目录
 
-     ```
-     mkdir hexo
-     ```
+   ```
+   mkdir hexo
+   ```
 
-  - 切换目录
+3. 切换目录
 
-      ``` 
-      cd hexo
-      ```
+    ``` 
+    cd hexo
+    ```
 
-  - 全局安装 Hexo，需要最高权限，记得输入root密码
+4. 全局安装 Hexo，需要最高权限，记得输入root密码
 
-      ``` 
-      sudo npm install -g hexo-cli
-      ```
+    ``` 
+    sudo npm install -g hexo-cli
+    ```
 
-  - 初始化 Hexo
+5. 初始化 Hexo
 
-      ```
-      hexo init
-      ```
+    ```
+    hexo init
+    ```
 
-  	注：如果报错执行代码,不报错忽略
+	注：如果报错执行代码,不报错忽略
 
-      ```
-      sudo npm config set user 0
-      sudo npm config set unsafe-perm true
-      sudo npm install -g hexo-cli
-      ```
+    ```
+    sudo npm config set user 0
+    sudo npm config set unsafe-perm true
+    sudo npm install -g hexo-cli
+    ```
 
-- 安装插件
+## 安装插件
 
-  - 如果安装慢就安装proxychains，并且定义alias npm='proxychains4 npm'
+1. 如果安装慢就安装proxychains，并且定义alias npm='proxychains4 npm'
 
-  - 如果要永久定义（重启不失效的话就编辑：
+2. 如果要永久定义（重启不失效的话就编辑：
 
     ```
     vim ~/.bashrc
     ```
     
-    并且在末尾添加以下代码并定义 alias
+      并且在末尾添加以下代码并定义 alias
     
     ```
     alias npm='proxychains4 npm'
     ```
-
-  - 配置完代理后就可以安装npm插件了
+    
+3. 配置完代理后就可以安装npm插件了
 
     ```
-    npm install hexo-generator-index --save
-    npm install hexo-generator-archive --save
-    npm install hexo-generator-category --save
-    npm install hexo-generator-tag --save
-    npm install hexo-server --save
-    npm install hexo-deployer-git --save
-    npm install hexo-deployer-heroku --save
-    npm install hexo-deployer-rsync --save
-    npm install hexo-deployer-openshift --save
-    npm install hexo-renderer-marked --save
-    npm install hexo-renderer-stylus --save
-    npm install hexo-generator-feed --save
-    npm install hexo-generator-sitemap --save
+      npm install hexo-generator-index --save
+      npm install hexo-generator-archive --save
+      npm install hexo-generator-category --save
+      npm install hexo-generator-tag --save
+      npm install hexo-server --save
+      npm install hexo-deployer-git --save
+      npm install hexo-deployer-heroku --save
+      npm install hexo-deployer-rsync --save
+      npm install hexo-deployer-openshift --save
+      npm install hexo-renderer-marked --save
+      npm install hexo-renderer-stylus --save
+      npm install hexo-generator-feed --save
+      npm install hexo-generator-sitemap --save
     ```
-  
-- 测试安装成功
 
-  ```
-  hexo g && hexo server
-  ```
+## 测试安装成功
 
-  ![本地部署成功](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/部署成功.png)
+```
+hexo g && hexo server
+```
+
+![本地部署成功](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/部署成功.png)
 
 
 
 # 同步到githubpages
 
-### 方案一：GithubPages
+## 方案一：GithubPages
 
-- 创建[Github](https://github.com/)账号
+1. 创建[Github](https://github.com/)账号
 
-- 创建仓库， 仓库名为：<Github账号名称>.github.io
+2. 创建仓库， 仓库名为：<Github账号名称>.github.io
 
-- 将本地Hexo博客推送到GithubPages
+3. 将本地Hexo博客推送到GithubPages
 
-  - 安装hexo-deployer-git插件。在命令行（即Git Bash）运行以下命令即可：
+   - 安装hexo-deployer-git插件。在命令行（即Git Bash）运行以下命令即可：
 
-    ```
-    $ npm install hexo-deployer-git --save
-    ```
+     ```
+     $ npm install hexo-deployer-git --save
+     ```
 
-  - 添加SSH key。
+   - 添加SSH key。
 
-    创建一个 SSH key 。在命令行（即Git Bash）输入以下命令，     回车三下即可：
+     创建一个 SSH key 。在命令行（即Git Bash）输入以下命令，     回车三下即可：
 
-    ```
-    $ ssh-keygen -t rsa -C "邮箱地址"  
-    ```
+     ```
+     $ ssh-keygen -t rsa -C "邮箱地址"  
+     ```
 
-  - 添加到 github。 复制密钥文件内容（路径形如C:\Users\Administrator\.ssh\id_rsa.pub），粘贴到[New SSH Key](https://github.com/settings/keys)即可。
+     - 添加到 github。 复制密钥文件内容（路径形如C:\Users\Administrator\.ssh\id_rsa.pub），粘贴到[New SSH Key](https://github.com/settings/keys)即可。
 
-  - 测试是否添加成功。在命令行（即Git     Bash）依次输入以下命令，返回“You’ve successfully authenticated”即成功：
+     - 测试是否添加成功。在命令行（即Git     Bash）依次输入以下命令，返回“You’ve successfully authenticated”即成功：
 
-    ```
-    $ ssh -T git@github.com  
-    $ yes  
-    ```
+       ```
+       $ ssh -T git@github.com  
+       $ yes  
+       ```
 
-    
+4. 修改_config.yml（在站点目录下）。文件末尾修改为：
 
-- 修改_config.yml（在站点目录下）。文件末尾修改为：
+   ```
+   # Deployment  
+     ## Docs: https://hexo.io/docs/deployment.html  
+     deploy:  
+     	type: git  
+     	repo: git@github.com:<Github账号名称>/<Github账号名称>.github.io.git  
+     	branch: master  
+   ```
 
-  ```
-  # Deployment  
-  ## Docs: https://hexo.io/docs/deployment.html  
-  deploy:  
-  	type: git  
-  	repo: git@github.com:<Github账号名称>/<Github账号名称>.github.io.git  
-  	branch: master  
-  ```
+   注意：上面仓库地址写ssh地址，不写http地址。(windows使用git的话建议用https，可以挂代理)
 
-  注意：上面仓库地址写ssh地址，不写http地址。(windows使用git的话建议用https，可以挂代理)
+5. 推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回INFO Deploy done: git即成功推送：
 
-- 推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回INFO Deploy done: git即成功推送：
+   ```
+   $ hexo g  
+   $ hexo d  
+   ```
 
-  ```
-    $ hexo g  
-    $ hexo d  
-  ```
+6. 等待1分钟左右，浏览器访问网址：https://<github账号名称>.github.io
 
-- 等待1分钟左右，浏览器访问网址：https://<github账号名称>.github.io
-
-
+   
 
 至此，的Hexo博客已经搭建在GithubPages, 域名为https://<Github账号名称>.github.io。
 
 
 
-### 方案二：GithubPages + 域名
+## 方案二：GithubPages + 域名
 
 在方案一的基础上，添加自定义域名（购买的域名）。
 
-- 域名解析。
-      类型选择为 CNAME；
-      主机记录即域名前缀，填写为www；
-      记录值填写为<Github账号名称>.github.io；
-      解析线路，TTL 默认即可。
+1. 域名解析。
+       类型选择为 CNAME；
+       主机记录即域名前缀，填写为www；
+       记录值填写为<Github账号名称>.github.io；
+       解析线路，TTL 默认即可。
 
-- 仓库设置。
-  - 打开博客仓库设置：https://github.com/<Github账号名称>/<Github账号名称>.github.io/settings
-  - 在Custom domain下，填写自定义域名，点击save。
-  - 在站点目录的source文件夹下，创建并打开CNAME.txt，写入你的域名，保存，并重命名为CNAME。 
+2. 仓库设置。
+   - 打开博客仓库设置：https://github.com/<Github账号名称>/<Github账号名称>.github.io/settings
+   - 在Custom domain下，填写自定义域名，点击save。
+   - 在站点目录的source文件夹下，创建并打开CNAME.txt，写入你的域名，保存，并重命名为CNAME。 
 
-- 等待10分钟左右。
-      浏览器访问自定义域名。
-      至此，Hexo博客已经解析到自定义域名，https://<Github账号名称>.github.io依然可用。
+3. 等待10分钟左右。
+       浏览器访问自定义域名。
+       至此，Hexo博客已经解析到自定义域名，https://<Github账号名称>.github.io依然可用。
 
 
 
@@ -221,7 +217,7 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 > 插件部分引自博客https://www.simon96.online/2018/10/12/hexo-tutorial/，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
 >
 
-### live2d：
+## live2d
 
 
 
@@ -311,7 +307,7 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
 - 将以下代码添加到主题配置文件`_config.yml`，修改<你喜欢的模型名字>：
 
-   ```
+   ```yaml
    live2d:
      enable: true
      scriptFrom: local
@@ -354,7 +350,7 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
 # 进阶配置
 
-### 语雀云端写作+腾讯云serverless提交+ Travis-ci自动构建+github-pages发布
+## 语雀云端写作+腾讯云serverless提交+ Travis-ci自动构建+github-pages发布
 
 > 实现语雀云端协作部分引自博客https://www.itfanr.cc/2017/08/09/using-travis-ci-automatic-deploy-hexo-blogs/以及[https://aqpcet.coding.me/%E8%AF%AD%E9%9B%80+TravisCI+Serverless/3689364350.html](https://aqpcet.coding.me/语雀+TravisCI+Serverless/3689364350.html)，仅做备份之用以便日后博客迁移可以照着这篇文文章重新恢复(ಥ _ ಥ)
 
@@ -386,13 +382,13 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
 
 
-#### 关键文件：
+### 关键文件：
 
 - .travis.yml：（参考自[IT范儿](https://www.itfanr.cc/2017/08/09/using-travis-ci-automatic-deploy-hexo-blogs/)）
 
   如果使用这两个问卷配置travis-ci的话，travis-ci.com上仓库的设置里面环境变量只需要设置Travis_Token，变量值为github上取得的Token（DISPLAY VALUE IN BUILD LOG一定要关上！）
 
-  ```
+  ```yaml
   language: node_js # 设置语言
   node_js: stable # 设置相应版本
   
@@ -459,7 +455,7 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
 - 腾讯云serverless函数配置，因为travis-ci.org的网址换成了travis-ci.com，所以要对网上的一些老版本的函数内容中的api部分进行修改，然后再加上token和repos即可
 
-  ```
+  ```php
   <?php
   function main_handler($event, $context) {
       // 解析语雀post的数据
@@ -555,85 +551,89 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
 
 
-#### 部署过程
+### 部署过程
 
-- 源码上传至github
+1. 源码上传至github
 
-  - 建一个新的仓库，专门存放源代码（也可以直接在github.io 的那个仓库新建一个分支，不过设置麻烦，就放弃了）
-  - 将本地代码上传（可能有信息安全风险，所以建议为博客单独开设一个帐号）。注意仓库要设为公开，travis-ci构建私人仓库是要付费的orz..
+   - 建一个新的仓库，专门存放源代码（也可以直接在github.io 的那个仓库新建一个分支，不过设置麻烦，就放弃了）
+   - 将本地代码上传（可能有信息安全风险，所以建议为博客单独开设一个帐号）。注意仓库要设为公开，travis-ci构建私人仓库是要付费的orz..
 
-  注意事项：
+   注意事项：
 
-  - 上传前建议先执行hexo clean，可以减少上传体积。
+   - 上传前建议先执行hexo clean，可以减少上传体积。
 
-  - 也可以通过配置.gitignore控制上传内容
+   - 也可以通过配置.gitignore控制上传内容
 
-    ```
-    .DS_Store
-    Thumbs.db
-    db.json
-    *.log
-    node_modules/
-    public/
-    .deploy*/
-    ```
+     ```
+     .DS_Store
+     Thumbs.db
+     db.json
+     *.log
+     node_modules/
+     public/
+     .deploy*/
+     ```
 
-- 配置travis-ci
+   
 
-  - 把.travis.yml和publish-to-gh-pages.sh放在根目录
+2. 配置travis-ci
 
-  - 登录[travis-ci](https://travis-ci.com/)，绑定github，允许访问github仓库，进入**博客源码**仓库
+   - 把.travis.yml和publish-to-gh-pages.sh放在根目录
 
-    ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis设置.png)
+     - 登录[travis-ci](https://travis-ci.com/)，绑定github，允许访问github仓库，进入**博客源码**仓库
 
-  - 设置Environment Variables(环境变量)，设置Travis_Token
+       ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis设置.png)
 
-    ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis的token设置.png)
+     - 设置Environment Variables(环境变量)，设置Travis_Token
 
-  - 配置完成后等待腾讯云serverless触发即可构建，构建成功会return 0，如果有其他问题（一般是缺环境）缺啥在.travis.yml中的install那里npm装包即可~
+       ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis的token设置.png)
 
-- 腾讯云serverless函数配置：
+     - 配置完成后等待腾讯云serverless触发即可构建，构建成功会return 0，如果有其他问题（一般是缺环境）缺啥在.travis.yml中的install那里npm装包即可~
 
-  - 新建php空白函数：（可以用python，aqpcet.coding.me用的就是python设置的）
+       
 
-    ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverless新建plp文件.png)
+3. 腾讯云serverless函数配置：
 
-  - 编辑serverless函数内容，需要获取以下两个信息，填入对应的地方就行
+   - 新建php空白函数：（可以用python，aqpcet.coding.me用的就是python设置的）
 
-    - travis登录token，在travis-ci.com中设置界面获取：
+     ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverless新建plp文件.png)
 
-      ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis登录token.png)
+   - 编辑serverless函数内容，需要获取以下两个信息，填入对应的地方就行
 
-    - 博客源码的仓库名
+     - travis登录token，在travis-ci.com中设置界面获取：
 
-      现在可以直接用<github用户名>%2F<博客源码仓库名>代替原来的仓库id了，不用在拿抓包工具抓仓库ID 或 扩展名了
-    
-  - 配置触发方式
+       ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis登录token.png)
 
-    ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverless设置触发方式.png)
+     - 博客源码的仓库名
 
-    一般会得到这么个api：https://service-s08f6nvk-1251833201.ap-guangzhou.apigateway.myqcloud.com/release/xxx
+       现在可以直接用\<github用户名>%2F<博客源码仓库名>代替原来的仓库id了，不用在拿抓包工具抓仓库ID 或 扩展名了
 
-- 语雀配置：
+   - 配置触发方式
 
-  配置一个仓库的webhook:
+     ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverless设置触发方式.png)
 
-  ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/语雀配置.png)
+     一般会得到这么个api：https://service-s08f6nvk-1251833201.ap-guangzhou.apigateway.myqcloud.com/release/xxx
 
-  可以选择所有更新触发或者主动触发，主动触发的意思即发布需要勾选一个选项才会触发webhook。具体可参见语雀文档：https://www.yuque.com/yuque/developer/doc-webhook；
-  将serverless生成的api填入,可以在链接后面带参数：
+4. 语雀配置：
 
-  ```
-  token 登录token
-  repos 仓库id
-  message 提交信息
-  branch 分支
-  
-  示例：
-  https://service-s08f6nvk-1251833201.ap-guangzhou.apigateway.myqcloud.com/release/xxx?repos=xxx&token=xxx&message=xxx&branch=xxx
-  ```
+   配置一个仓库的webhook:
 
-  如果不在链接带参数则写在serverless函数内。
+   ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/语雀配置.png)
+
+   可以选择所有更新触发或者主动触发，主动触发的意思即发布需要勾选一个选项才会触发webhook。具体可参见语雀文档：https://www.yuque.com/yuque/developer/doc-webhook；
+   将serverless生成的api填入,可以在链接后面带参数：
+
+   ```
+   token 登录token
+   repos 仓库id
+   message 提交信息
+   branch 分支
+   
+   示例：
+   https://service-s08f6nvk-1251833201.ap-guangzhou.apigateway.myqcloud.com/release/xxx?repos=xxx&token=xxx&message=xxx&branch=xxx
+   ```
+
+   如果不在链接带参数则写在serverless函数内。
 
 ### 通过语雀插件对front-matter进行处理
 
@@ -665,227 +665,221 @@ more detail
 
 # 一些坑
 
-- serverless python版
-
-  ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverlesspython版.png)
-
-
-
-- 私人图床：onedrive
-
-  使用方法非常简单，具体步骤如下：
-
-  - 注册账户，已有的可直接略过。
-
-  - 登录OneDrive，上传需要外链的图片。
-
-  - 在图片上右键选择“嵌入”按钮，再在弹出的窗口中点击“生成”选项。
-
-  - 将链接复制到需要展示的地方。
-
-  来自 <https://osk.ink/archives/12/> 
-
-  
-
-- travis渲染时报错：
-
-  > travis /bin/bash^M: bad interpreter: No such file or directory
-  >
-  >  
-  >
-  > If you use **Sublime Text** on Windows or Mac to edit your scripts:
-  >
-  > Click on View > Line Endings > Unix and **save** the file again.
-
-  原因：编码问题，如下解决即可
-
-  ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis编码报错解决.png)
-
-  
-
-- Ubuntu安装Proxychains
-
-  Proxychains是Linux上一款全局代理工具，通过Hook Socket函数实现透明代理，这和Windows上的Proxifier有点类似。 在Ubuntu上安装Proxychains的方法是：
-
-  ```
-  apt-get install proxychains 
-  ```
-
-  安装的是3.1版本，配置文件的路径是：/etc/proxychains.conf，内容如下：
-
-  ```
-  # proxychains.conf  VER 3.1
-  #
-  #        HTTP, SOCKS4, SOCKS5 tunneling proxifier with DNS.
-  #
-  # The option below identifies how the ProxyList is treated.
-  # only one option should be uncommented at time,
-  # otherwise the last appearing option will be accepted
-  #
-  #dynamic_chain
-  #
-  # Dynamic - Each connection will be done via chained proxies
-  # all proxies chained in the order as they appear in the list
-  # at least one proxy must be online to play in chain
-  # (dead proxies are skipped)
-  # otherwise EINTR is returned to the app
-  #
-  strict_chain
-  #
-  # Strict - Each connection will be done via chained proxies
-  # all proxies chained in the order as they appear in the list
-  # all proxies must be online to play in chain
-  # otherwise EINTR is returned to the app
-  #
-  #random_chain
-  #
-  # Random - Each connection will be done via random proxy
-  # (or proxy chain, see  chain_len) from the list.
-  # this option is good to test your IDS :)
-  # Make sense only if random_chain
-  #chain_len = 2
-  # Quiet mode (no output from library)
-  #quiet_mode
-  # Proxy DNS requests - no leak for DNS data
-  proxy_dns 
-  # Some timeouts in milliseconds
-  tcp_read_time_out 15000
-  tcp_connect_time_out 8000
-  # ProxyList format
-  #       type  host  port [user pass]
-  #       (values separated by 'tab' or 'blank')
-  #
-  #
-  #        Examples:
-  #
-  #               socks5  192.168.67.78   1080    lamer   secret
-  #               http    192.168.89.3    8080    justu   hidden
-  #               socks4  192.168.1.49    1080
-  #               http    192.168.39.93   8080
-  #
-  #
-  #       proxy types: http, socks4, socks5
-  #        ( auth types supported: "basic"-http  "user/pass"-socks )
-  #
-  [ProxyList]
-  # add proxy here ...
-  # meanwile
-  # defaults set to "tor"
-  socks4         127.0.0.1 9050
-  
-  ```
+## serverless python版
+
+![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/serverlesspython版.png)
+
+
+
+## 私人图床：onedrive
+
+使用方法非常简单，具体步骤如下：
+
+- 注册账户，已有的可直接略过。
+
+- 登录OneDrive，上传需要外链的图片。
+
+- 在图片上右键选择“嵌入”按钮，再在弹出的窗口中点击“生成”选项。
+
+- 将链接复制到需要展示的地方。
+
+来自 <https://osk.ink/archives/12/> 
+
+
+
+## travis渲染时报错：
+
+> travis /bin/bash^M: bad interpreter: No such file or directory
+>
+>  
+>
+> If you use **Sublime Text** on Windows or Mac to edit your scripts:
+>
+> Click on View > Line Endings > Unix and **save** the file again.
+
+原因：编码问题，如下解决即可
+
+![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis编码报错解决.png)
+
+
+
+## Ubuntu安装Proxychains
+
+Proxychains是Linux上一款全局代理工具，通过Hook Socket函数实现透明代理，这和Windows上的Proxifier有点类似。 在Ubuntu上安装Proxychains的方法是：
+
+```
+apt-get install proxychains 
+```
+
+安装的是3.1版本，配置文件的路径是：/etc/proxychains.conf，内容如下：
+
+```
+# proxychains.conf  VER 3.1
+#
+#        HTTP, SOCKS4, SOCKS5 tunneling proxifier with DNS.
+#
+# The option below identifies how the ProxyList is treated.
+# only one option should be uncommented at time,
+# otherwise the last appearing option will be accepted
+#
+#dynamic_chain
+#
+# Dynamic - Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# at least one proxy must be online to play in chain
+# (dead proxies are skipped)
+# otherwise EINTR is returned to the app
+#
+strict_chain
+#
+# Strict - Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# all proxies must be online to play in chain
+# otherwise EINTR is returned to the app
+#
+#random_chain
+#
+# Random - Each connection will be done via random proxy
+# (or proxy chain, see  chain_len) from the list.
+# this option is good to test your IDS :)
+# Make sense only if random_chain
+#chain_len = 2
+# Quiet mode (no output from library)
+#quiet_mode
+# Proxy DNS requests - no leak for DNS data
+proxy_dns 
+# Some timeouts in milliseconds
+tcp_read_time_out 15000
+tcp_connect_time_out 8000
+# ProxyList format
+#       type  host  port [user pass]
+#       (values separated by 'tab' or 'blank')
+#
+#
+#        Examples:
+#
+#               socks5  192.168.67.78   1080    lamer   secret
+#               http    192.168.89.3    8080    justu   hidden
+#               socks4  192.168.1.49    1080
+#               http    192.168.39.93   8080
+#
+#
+#       proxy types: http, socks4, socks5
+#        ( auth types supported: "basic"-http  "user/pass"-socks )
+#
+[ProxyList]
+# add proxy here ...
+# meanwile
+# defaults set to "tor"
+socks4         127.0.0.1 9050
 
-  Proxychains支持HTTP（HTTP-Connect）、SOCKS4和SOCKS5三种类型的代理，需要注意的是：配置代理服务器只能使用ip地址，不能使用域名，否则会连不上。
+```
 
-  Proxychains支持3种模式： 
+Proxychains支持HTTP（HTTP-Connect）、SOCKS4和SOCKS5三种类型的代理，需要注意的是：配置代理服务器只能使用ip地址，不能使用域名，否则会连不上。
 
-  1. 动态模式 按照配置的代理顺序连接，不存活的代理服务器会被跳过 
-  2. 严格模式     按照配置的代理顺序连接，必须保证所有代理服务器都是存活的，否则会连接失败 
-  3. 随机模式     随机选择一台代理服务器连接，也可以使用代理链
+Proxychains支持3种模式： 
 
-  如果不需要代理DNS的话，可以注释掉proxy_dns这行。
+1. 动态模式 按照配置的代理顺序连接，不存活的代理服务器会被跳过 
+2. 严格模式     按照配置的代理顺序连接，必须保证所有代理服务器都是存活的，否则会连接失败 
+3. 随机模式     随机选择一台代理服务器连接，也可以使用代理链
 
-  使用的时候在命令行前加上proxychains即可。
+如果不需要代理DNS的话，可以注释掉proxy_dns这行。
 
-  ```
-  root@ubuntu-pc:~# proxychains telnet [www.baidu.com](http://www.baidu.com) 80 ProxyChains-3.1 ([http://proxychains.sf.net](http://proxychains.sf.net/)) Trying 14.215.177.37… |R-chain|-<>-10.0.0.10:8080-<><>-14.215.177.37:80-<><>-OK Connected to [www.a.shifen.com](http://www.a.shifen.com). Escape character is ‘^]’. 
-  
-  proxychains命令其实是个脚本文件，内容如下：
-  
-  \#!/bin/sh
-   echo "ProxyChains-3.1 (http://proxychains.sf.net)"
-   if [ $# = 0 ] ; then
-       echo " usage:"
-       echo "     proxychains <prog> [args]"
-       exit
-   fi
-   export LD_PRELOAD=libproxychains.so.3
-   exec "$@"
-  ```
+使用的时候在命令行前加上proxychains即可。
 
-  它的目的是设置LD_PRELOAD环境变量，以便创建的新进程会加载libproxychains.so.3，这个so的作用是Hook Socket函数。因此，也可以在当前shell中执行： 
+```
+root@ubuntu-pc:~# proxychains telnet [www.baidu.com](http://www.baidu.com) 80 ProxyChains-3.1 ([http://proxychains.sf.net](http://proxychains.sf.net/)) Trying 14.215.177.37… |R-chain|-<>-10.0.0.10:8080-<><>-14.215.177.37:80-<><>-OK Connected to [www.a.shifen.com](http://www.a.shifen.com). Escape character is ‘^]’. 
 
-  ```
-  export LD_PRELOAD=libproxychains.so.3
-  ```
+proxychains命令其实是个脚本文件，内容如下：
 
-  这样之后执行的命令都会使用代理访问。
+\#!/bin/sh
+ echo "ProxyChains-3.1 (http://proxychains.sf.net)"
+ if [ $# = 0 ] ; then
+     echo " usage:"
+     echo "     proxychains <prog> [args]"
+     exit
+ fi
+ export LD_PRELOAD=libproxychains.so.3
+ exec "$@"
+```
 
-  不过这个版本有个问题，配置代理后所有的连接都会走代理，包括对回环地址的访问。这并不是我们所期望的，幸好有个版本提供了解决方案。
+它的目的是设置LD_PRELOAD环境变量，以便创建的新进程会加载libproxychains.so.3，这个so的作用是Hook Socket函数。因此，也可以在当前shell中执行： 
 
-  ```
-  git clone https://github.com/rofl0r/proxychains cd proxychains ./configure make make install 
-  ```
+```
+export LD_PRELOAD=libproxychains.so.3
+```
 
-  安装后在配置文件中加入：
+这样之后执行的命令都会使用代理访问。
 
-  ```
-  localnet 127.0.0.0/255.0.0.0 
-  ```
+不过这个版本有个问题，配置代理后所有的连接都会走代理，包括对回环地址的访问。这并不是我们所期望的，幸好有个版本提供了解决方案。
 
-  安装后的命令是proxychains4，因此可以和旧版本命令并存。这样对于回环地址就可以绕过代理，使用直连了。
+```
+git clone https://github.com/rofl0r/proxychains cd proxychains ./configure make make install 
+```
 
-  相对于Proxifier而言，这种方式还是弱了一点，毕竟有时候我们还是需要根据不同的情况使用不同的代理服务器。
+安装后在配置文件中加入：
 
-  
+```
+localnet 127.0.0.0/255.0.0.0 
+```
 
-- 有东西传不到github上去？
+安装后的命令是proxychains4，因此可以和旧版本命令并存。这样对于回环地址就可以绕过代理，使用直连了。
 
-  删掉.deploy_git:
+相对于Proxifier而言，这种方式还是弱了一点，毕竟有时候我们还是需要根据不同的情况使用不同的代理服务器。
 
-  ```
-  - rm -rf .deploy_git/
-  ```
 
 
+## 有东西传不到github上去？
 
-- 语雀防盗链解决办法：
+删掉.deploy_git:
 
-  临时方案是直接在 html 模版中添加 head 进行绕过
+```
+- rm -rf .deploy_git/
+```
 
-  ```html
-  <meta name="referrer" content="no-referrer" />
-  ```
 
-   (来自 <https://github.com/x-cold/yuque-hexo/issues/41> )
 
-  
+## 语雀防盗链解决办法：
 
-  注：对于butterfly主题的话对themes\Butterfly\layout\includes\layout.pug修改head部分即可
+临时方案是直接在 html 模版中添加 head 进行绕过
 
+```html
+<meta name="referrer" content="no-referrer" />
+```
 
+ (来自 <https://github.com/x-cold/yuque-hexo/issues/41> )
 
-- gem失败
+注：对于butterfly主题的话对themes\Butterfly\layout\includes\layout.pug修改head部分即可，但是会造成网站访客数和文章阅读数无法加载
 
-  apt-get install ruby-dev 
 
 
+## gem失败
 
-- 如果使用windows子系统的Ubuntu的话，可能会出现Windows 的 Linux 子系统的文件同步和 Windows 不是实时的问题（来自 <https://www.zhihu.com/question/318832524/answer/641951256> ）
+apt-get install ruby-dev 
 
-  你可以在Windows下存储文件，然后在wsl中使用/mnt/盘符/路径 访问
 
-  你也可以在1903更新发布后在Linux rootfs中存储文件，Windows程序使用\\wsl$\Ubuntu\unix路径 访问
 
-  唯独不正确的操作是找到AppData里rootfs文件夹直接用Windows程序修改，因为这里面的文件在NTFS中除了存储文件内容，Windows文件元数据，还存储unix文件元数据（比如rwx权限，unix用户组和用户），你创建的文件并不具有这样的属性，因此会导致权限混乱。
+如果使用windows子系统的Ubuntu的话，可能会出现Windows 的 Linux 子系统的文件同步和 Windows 不是实时的问题（来自 <https://www.zhihu.com/question/318832524/answer/641951256> ）
 
-  详见：[https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/](https://link.zhihu.com/?target=https%3A//blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
+你可以在Windows下存储文件，然后在wsl中使用/mnt/盘符/路径 访问
 
-  1903（19H1，20195月更新）的改动
+你也可以在1903更新发布后在Linux rootfs中存储文件，Windows程序使用\\wsl$\Ubuntu\unix路径 访问
 
-  **Linux Files inside of File Explorer**
+唯独不正确的操作是找到AppData里rootfs文件夹直接用Windows程序修改，因为这里面的文件在NTFS中除了存储文件内容，Windows文件元数据，还存储unix文件元数据（比如rwx权限，unix用户组和用户），你创建的文件并不具有这样的属性，因此会导致权限混乱。
 
-  The best way to get started with this feature is to open your Linux files in File Explorer! To do this, open your favorite distro, make sure your current folder is your Linux home directory, and type in:
+详见：[https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/](https://link.zhihu.com/?target=https%3A//blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/)
 
-  ```
-  explorer.exe .
-  ```
+1903（19H1，20195月更新）的改动
 
-  来自 <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/> 
+**Linux Files inside of File Explorer**
 
+The best way to get started with this feature is to open your Linux files in File Explorer! To do this, open your favorite distro, make sure your current folder is your Linux home directory, and type in:
 
+```
+explorer.exe .
+```
 
-
+来自 <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/> 
 
 
 
