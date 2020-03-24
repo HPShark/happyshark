@@ -391,6 +391,12 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
   如果使用这两个问卷配置travis-ci的话，travis-ci.com上仓库的设置里面环境变量只需要设置Travis_Token，变量值为github上取得的Token（DISPLAY VALUE IN BUILD LOG一定要关上！）
 
+  
+
+  **20200324更新：语雀会对频繁调用的请求进行限流，故需要将语雀token加入到该文件中。${YUQUE_TOKEN}即为语雀token，为保证安全故将token值加进travic网站中而不保存在文件中，添加方法与Travis_Token添加方法相同**
+
+  
+
   ```yaml
   language: node_js # 设置语言
   node_js: stable # 设置相应版本
@@ -420,7 +426,7 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
   
   script:
       - yuque-hexo clean
-      - yuque-hexo sync
+      - YUQUE_TOKEN=${YUQUE_TOKEN} yuque-hexo sync
       - npm run sync
       - hexo clean
       - hexo g
@@ -587,7 +593,7 @@ hexo博客主题用的是[butterfly](https://github.com/jerryc127/hexo-theme-but
 
        ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis设置.png)
 
-     - 设置Environment Variables(环境变量)，设置Travis_Token
+     - 设置Environment Variables(环境变量)，设置Travis_Token，YUQUE_TOKEN添加方法类似
 
        ![](https://raw.githubusercontent.com/HPShark/blogimages/master/hello-world/travis的token设置.png)
 
