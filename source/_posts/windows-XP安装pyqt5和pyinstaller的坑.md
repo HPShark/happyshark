@@ -3,9 +3,6 @@ title: windows XP安装pyqt5和pyinstaller的坑
 tags: [windowsXP, pyqt5]
 categories: python
 description: 
-cover: tags: [宽带, 多拨, 提速, wifi]
-categories: 宽带
-description: 
 cover: https://cdn.jsdelivr.net/gh/HPShark/blogimages@master/windowsXP_pyqt/封面.png
 ---
 
