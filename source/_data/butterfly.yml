@@ -14,7 +14,6 @@ menu:
   生活清单||fa fa-list:
     - 音乐 || /music/ || fa fa-music
     - 照片 || /Gallery/ || fa fa-picture-o
-    # - Movie || /movies/ || fa fa-film
 
 # Favicon
 # ---------------
@@ -43,19 +42,19 @@ code_word_wrap: false
 
 # copy setting
 # 是否禁止複製（如果禁止，highlight_copy的功能將無效)
-# copyright 複製的内容後面加上版權信息
+# copyright 複製的內容後面加上版權信息
 copy:
-  enable: true # true 開啓 / false 禁止
+  enable: true # true 開啟 / false 禁止
   copyright: false
 
 # social settings
 # formal:
-#   icon: link
+#   icon: link || the description
 # ---------------
 social:
-  fa fa-github: https://github.com/hpshark
-  fa fa-envelope: mailto:happyshark520@outlook.com
-  fa fa-rss: /atom.xml
+  fa fa-github: https://github.com/hpshark || Github
+  fa fa-envelope: mailto:happyshark520@outlook.com || Email
+  fa fa-rss: /atom.xml || RSS
 
 ####    search    ####
 # Algolia search
@@ -71,7 +70,7 @@ algolia_search:
     hits_stats: "${hits} 查找用时 ${time} ms"
 
 # Local search
-# Please see doc for more details: https://jerryc.me/posts/21cfbf15/#本地搜索
+# Please see doc for more details: https://docs.jerryc.me/config.html#本地搜索
 # ---------------
 local_search:
   enable: true
@@ -80,7 +79,7 @@ local_search:
     hits_empty: "没有找到任何结果(┬＿┬): ${query}" # if there are no result
 
 # MathJax
-# Please see doc for more details: https://jerryc.me/posts/21cfbf15/#MathJax
+# Please see doc for more details: https://docs.jerryc.me/config.html#mathjax
 # ---------------
 mathjax:
   enable: true
@@ -97,9 +96,19 @@ katex:
   per_page: false
   hide_scrollbar: true
 
+# mermaid
+# see https://github.com/knsv/mermaid
+# -------------------------------
+mermaid:
+  enable: false
+  # built-in themes: default/forest/dark/neutral
+  theme: default
+
 # Post info settings
 # ---------------
-avatar: /img/avatar.png
+avatar:
+  img: /img/avatar.png
+  effect: true # 頭像會一直轉圈
 
 # the banner image of index
 index_img: /img/cover.jpg
@@ -107,40 +116,69 @@ index_img: /img/cover.jpg
 # if the banner of page not setting,it will show the top_img
 default_top_img: /img/cover.jpg
 
-# the default cover of the post
-default_cover: 
-  - https://p5tvaw.ch.files.1drv.com/y4mgkZUMRTywsDqHeXTlB_GjXsHl3ogbxB0LeZA8-Fe4SFvgwpVXkT4is-TLYWefPFxHicCD-f2BTA1X1PxZ0ZfQv8vGbiDNRDDwW8NLYOT64ulOqN_zXwDk2LPSfwV5h9EwtMX4VSQrxE54q_gn0z09U1xFT8wwHVJ8tZnhwpKHFWz-SdE9ecIw6t6da_gaqO_MRV6xMto-MogU9h2mEMIIw?width=2880&height=1800&cropmode=none
-  - https://qjttaw.ch.files.1drv.com/y4mnq6_BPqLVOtjvZKIIsSWcnRrr37QDSBZApHOW6ioF_2_BpO212A-0JcL6a3zUIrK4BRHKImfiBW8FbrIM_S_P72pyD6RjWrfnaEg6byj_39h3WrsAgK7VtD4DT8dfYqlFEn82lyW43jLBEITIpIsw_eEJfPIvbbjJ51BllMozGBkiBBsQ-d_7D66BtBdtL5pjXozcIJdBZXlw11GPtXkeQ?width=960&height=480&cropmode=none
-  - https://p5taaw.ch.files.1drv.com/y4mQtjJMd9_n3jbtvuXBf0bSgnhiJTVeCAebtrOYoPSkemKyFNkwSdNj0o3pk00bnliWFZ2wrLpcsQF2zWGAFKBKXH99yG-L6DTipa-zVqH_b7ukSIlJ2XMfDRXHyhLRXPHlg49ZbFb7V1sCpYZLU-nDbf8e6f_1kOQLaCuJC4hjbuo9roFJV87DG0JVPovAUIcr75nGUiF-hHKKZfO_l7iVw?width=224&height=224&cropmode=none
-  - https://qjtraw.ch.files.1drv.com/y4md3Es6ur1RCQqiuZN1FeK15oSbIDYU_SbIzh4R-KLgB2fOjMYvxVQ2bWoTwCEHOldW1N8zDD5G-bGJMn7nkfoIAo8irx31My-68nx7s7D17-aFGuZcXiIXgJ8RsIcOdwTrfyYx8ldelgdBsLODwJM6lwoMTk2evTn1xrLFpeTpS3W1O4Wca36Gida0VfMcltaXxuSyq4iuo7fhFXfaY5JJQ?width=908&height=1024&cropmode=none
-  - https://qjtsaw.ch.files.1drv.com/y4mpMLII6Wtosqm5wWqSXPsGV1cu9oGQFY9odVJFGOxTdiN8c6FvJnIoHpEIfIt7RiEFrhRMqtfAvwmWCbWKBe3t3aT4DH_JvOOqeDzKQVsUUyhcb6lWIAcaFY4qZew4qh7PY060s8urZiFhrwDDbnzTFXykibC71Aap10ceNza_bkL84zoNkY0AKGhzGSZVYjf4xY_6S7eb0YCfuN4I_mG7Q?width=906&height=966&cropmode=none
-
 # the banner image of archive page
 archive_img: https://p5tbaw.ch.files.1drv.com/y4mAluFR8TmHyJliU74q8VOKz-P2EUAx5-b1A34YyJf94TRs0iVsIa9LIANRDCbvMswtRqcJ1VTqE9b24SgN6gbJnMcFTV9ZxUHXykF_urzXACa5HxWnV_DUmrmw3HscVMELmKNpmb3fmKPhf6K7sr8oNHUEcc9W7wG0PIqckWwqTgbYB5Ur5rEl8WOoTr4hZuHvAP72oATWncGDILeaqnGgw?width=1350&height=901&cropmode=none
 
 # the banner image of tag page
+# tag page, look like https://xxxxxxxxx.com/tags/butterfly
 tag_img: https://qjtxaw.ch.files.1drv.com/y4ms3a7g_m4CscB3bn8dZROTu8KP448XmGttHW9w7KkpOVFdCq8VWcmeIgeoagKb0M9Q7uvZzVTGfFrUt1-fG3xDoew-SIa4M9mWEXTRr9CEWQ4on9ivJW8expDN7CctJ9Y7DHrTADzCgY-73DnQUndtqwvhvkIfmdn53JRpC03hna8Z3h4a_-LpuwsHPqEP3yOTXK4ha4Ngq0lA9fDXKqRMA?width=1950&height=1300&cropmode=none
 
 # the banner image of category page
+# category page, look like https://xxxxxxxxx.com/categories/butterfly
 category_img: https://qjtqaw.ch.files.1drv.com/y4mmpVlaCLct744uKuvSV_V6WD6UMI3CFf4yFggl9Wdb-uXqWQ5j-SSgZfmcYN81uT5ZEDHcMK3wKTsbF0LrdP-OQin6zDL5J3UhcrZt5bsOW_KQjVHs15xR792K0mu8NcD3rojXZfqqwEQjEqJNxXVMK_SFuHuCkndlGtsey-HjvsjUGaBxfHxomTMOSfnZs2IkHlgW0FuHoH6tJLL8av_9A?width=1950&height=1300&cropmode=none
 
-# 如果你有使用hexo-douban去生成movie界面，可配置這個
-movies_img: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/movie.jpg
+
+# 如果你有使用hexo-douban，可配置這個
+# douban:
+#   meta: false
+#   movies_img:
+#   books_img:
+#   games_img:
+
+cover:
+  # 是否顯示文章封面
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  # 封面顯示的位置
+  # 三個值可配置 left , right , both
+  position: both
+  # 當沒有設置cover時，默認的封面顯示
+  default_cover:
+    - https://p5tvaw.ch.files.1drv.com/y4mgkZUMRTywsDqHeXTlB_GjXsHl3ogbxB0LeZA8-Fe4SFvgwpVXkT4is-TLYWefPFxHicCD-f2BTA1X1PxZ0ZfQv8vGbiDNRDDwW8NLYOT64ulOqN_zXwDk2LPSfwV5h9EwtMX4VSQrxE54q_gn0z09U1xFT8wwHVJ8tZnhwpKHFWz-SdE9ecIw6t6da_gaqO_MRV6xMto-MogU9h2mEMIIw?width=2880&height=1800&cropmode=none
+    - https://qjttaw.ch.files.1drv.com/y4mnq6_BPqLVOtjvZKIIsSWcnRrr37QDSBZApHOW6ioF_2_BpO212A-0JcL6a3zUIrK4BRHKImfiBW8FbrIM_S_P72pyD6RjWrfnaEg6byj_39h3WrsAgK7VtD4DT8dfYqlFEn82lyW43jLBEITIpIsw_eEJfPIvbbjJ51BllMozGBkiBBsQ-d_7D66BtBdtL5pjXozcIJdBZXlw11GPtXkeQ?width=960&height=480&cropmode=none
+    - https://p5taaw.ch.files.1drv.com/y4mQtjJMd9_n3jbtvuXBf0bSgnhiJTVeCAebtrOYoPSkemKyFNkwSdNj0o3pk00bnliWFZ2wrLpcsQF2zWGAFKBKXH99yG-L6DTipa-zVqH_b7ukSIlJ2XMfDRXHyhLRXPHlg49ZbFb7V1sCpYZLU-nDbf8e6f_1kOQLaCuJC4hjbuo9roFJV87DG0JVPovAUIcr75nGUiF-hHKKZfO_l7iVw?width=224&height=224&cropmode=none
+    - https://qjtraw.ch.files.1drv.com/y4md3Es6ur1RCQqiuZN1FeK15oSbIDYU_SbIzh4R-KLgB2fOjMYvxVQ2bWoTwCEHOldW1N8zDD5G-bGJMn7nkfoIAo8irx31My-68nx7s7D17-aFGuZcXiIXgJ8RsIcOdwTrfyYx8ldelgdBsLODwJM6lwoMTk2evTn1xrLFpeTpS3W1O4Wca36Gida0VfMcltaXxuSyq4iuo7fhFXfaY5JJQ?width=908&height=1024&cropmode=none
+    - https://qjtsaw.ch.files.1drv.com/y4mpMLII6Wtosqm5wWqSXPsGV1cu9oGQFY9odVJFGOxTdiN8c6FvJnIoHpEIfIt7RiEFrhRMqtfAvwmWCbWKBe3t3aT4DH_JvOOqeDzKQVsUUyhcb6lWIAcaFY4qZew4qh7PY060s8urZiFhrwDDbnzTFXykibC71Aap10ceNza_bkL84zoNkY0AKGhzGSZVYjf4xY_6S7eb0YCfuN4I_mG7Q?width=906&height=966&cropmode=none
 
 # if the photo link cannot connect,it will show that
 lodding_bg:
-  flink: /img/friend_404.gif #404后圖片
-  post_page: /img/404.jpg #404后圖片
+  flink: /img/friend_404.gif #404後圖片
+  post_page: /img/404.jpg #404後圖片
 #  post: /img/loading.gif ##加載動畫
 
-post_meta:
-  date_type: both # or created or updated 文章日期是创建日或者更新日或都显示
-  categories: true # or false 是否显示分类
-  tags: true # or false 是否显示标签
+# A simple 404 page
+error_404:
+  enable: true
+  subtitle: "Page Not Found"
+  background:
 
-# Please see doc for more details: https://jerryc.me/posts/21cfbf15/#字数统计
+post_meta:
+  page:
+    date_type: both # created or updated or both 主頁文章日期是創建日或者更新日或都顯示
+    categories: true # true or false 主頁是否顯示分類
+    tags: false # true or false 主頁是否顯示標籤
+  post:
+    date_type: both # created or updated or both 文章頁日期是創建日或者更新日或都顯示
+    categories: true # true or false 文章頁是否顯示分類
+    tags: true # true or false 文章頁是否顯示標籤
+
+# Please see doc for more details: https://docs.jerryc.me/config.html#字數統計
 wordcount:
   enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
 
 toc:
   enable: true
@@ -152,6 +190,7 @@ auto_open_sidebar:
 
 post_copyright:
   enable: true
+  decode: false
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
@@ -189,6 +228,19 @@ disqus:
   shortname:
   count: false # top_img顯示評論數
 
+# Disqus.js版評論系統，應對大陸長城的折中方案，兼容原版：https://github.com/SukkaW/DisqusJS
+# API 申請地址：https://disqus.com/api/applications/
+# 與 disqus 共用樣式
+disqusjs:
+  enable: false
+  shortname:
+  siteName:
+  apikey:
+  api: https://disqus.skk.moe/disqus/ #一般情況下無需修改 API 地址
+  admin:
+  adminLabel:
+  count: true # top_img顯示評論數
+
 laibili:
   enable: false
   uid:
@@ -200,23 +252,40 @@ gitalk:
   repo:
   owner:
   admin:
-  language: # en , zh-CN , zh-TW
-  count: false # top_img顯示評論數
+  language: zh-CN # en , zh-CN , zh-TW
+  perPage: 10 # Pagination size, with maximum 100.
+  distractionFreeMode: false # Facebook-like distraction free mode.
+  pagerDirection: last # Comment sorting direction, available values are last and first.
+  createIssueManually: false # Gitalk will create a corresponding github issue for your every single page automatically
+  count: true # top_img顯示評論數
 
 # valine comment system. https://valine.js.org
 valine:
   enable: true # if you want use valine,please set this value is true
   appId: AjLKA4IzP25RQ5xYw0LnFcL6-MdYXbMMI # leancloud application app id
   appKey: aTxUi4O2lODq1lzTe9s5nWam # leancloud application app key
-  notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
+  notify: true # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
   verify: true # valine verify code (true/false)
   pageSize: 10 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: zh-cn # i18n: zh-cn/en
   placeholder: 欢迎评论~ # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link #valine comment header info
+  recordIP: false # Record reviewer IP
+  serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
   bg: /img/comment_bg.png # valine background
-  count: false # top_img顯示評論數
+  count: true # top_img顯示評論數
+
+# utterances
+# https://utteranc.es/
+utterances:
+  enable: false
+  repo:
+  # 可選 pathname/url/title/og:title
+  issue_term: pathname
+  # 可選 github-light/github-dark/github-dark-orange/icy-dark/dark-blue/photon-dark
+  light_theme: github-light
+  dark_theme: photon-dark
 
 #####     Footer Settings    ####
 # ------------------------------------
@@ -252,6 +321,13 @@ google_adsense:
   client:
   enable_page_level_ads: true
 
+# 廣告插入位置
+# 適用於開啓手動廣告的配置
+# ad:
+#   index:
+#   aside:
+#   post:
+
 ####    站長驗證    ####
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -269,16 +345,6 @@ baidu_site_verification:
 # see http://zhanzhang.so.com/
 qihu_site_verification:
 
-# 友情鏈接界面設置
-Flink:
-  headline: 友情链接
-  info_headline: 我的Blog資料
-  name: Blog 名字： Happy Shark
-  address: Blog 地址： https://www.happyshark.cn/
-  avatar: Blog 頭像： https://happyshark.cn/img/avatar.png
-  info: Blog 簡介： 我太菜了
-  comment: 如需交换友链,请留言
-
 # 打賞按鈕
 reward:
   enable: false
@@ -294,7 +360,11 @@ reward:
 related_post:
   enable: true
   limit: 3 # 顯示推薦文章數目
-  date_type: created # or created or updated 文章日期顯示创建日或者更新日
+  date_type: created # or created or updated 文章日期顯示創建日或者更新日
+
+# figcaption
+# 圖片描述文字
+photofigcaption: false
 
 ####    美化/效果    ####
 #--------------------------------
@@ -302,27 +372,26 @@ related_post:
 # Theme color for customize
 # Notice: color value must in double quotes like "#000" or may cause error!
 # ---------------
-theme_color:
-  enable: true
-  main: "#49B1F5"
-  paginator: "#00c4b6"
-  button_hover: "#FF7242"
-  text_selection: "#00c4b6"
-  link_color: "#99a9bf"
-  meta_color: '#858585'
-  hr_color: "#A4D8FA"
-  read-mode-bg_color: '#FAF9DE'
-  inline-code-color: '#F47466'
+# theme_color:
+#   enable: true
+#   main: "#49B1F5"
+#   paginator: "#00c4b6"
+#   button_hover: "#FF7242"
+#   text_selection: "#00c4b6"
+#   link_color: "#99a9bf"
+#   meta_color: "#858585"
+#   hr_color: "#A4D8FA"
+#   code_foreground: "#F47466"
+#   code_background: "rgba(27, 31, 35, .05)"
+#   toc_color: "#00c4b6"
+#   blockquote_padding_color: "#49b1f5"
+#   blockquote_background_color: "#49b1f5"
 
 # 主頁設置
 # 默認top_img全屏，site_info在中間
 # 使用默認, 都無需填寫（建議默認）
-index_top_img_height: #主頁top_img高度 例如 300px/300em/300rem  不能使用百分比
-
-# 主頁文章COVER顯示位置
-# 三個值可配置 left , right , both
-# left(全部圖片顯示在左邊)，right(全部圖片顯示在右邊)，both(左右左右順序顯示)
-index_post_cover: both
+index_site_info_top: # 主頁標題距離頂部距離  例如 300px/300em/300rem/10%
+index_top_img_height: # 主頁top_img高度 例如 300px/300em/300rem  不能使用百分比
 
 # category和tag頁的UI設置
 # index 值代表 UI將與首頁的UI一樣
@@ -341,7 +410,7 @@ background:
 footer_bg: false
 
 # 背景特效
-# 避免卡頓，建議只開啓一個
+# 避免卡頓，建議只開啟一個
 # canvas_ribbon 禁止彩帶背景
 # See: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
@@ -374,8 +443,8 @@ activate_power_mode:
   shake: false # 抖動特效
 
 # 鼠標點擊效果
-# 避免卡頓，建議只開啓一個
-# 點擊烟火特效
+# 避免卡頓，建議只開啟一個
+# 點擊煙火特效
 fireworks:
   enable: false
 
@@ -634,19 +703,15 @@ ClickShowText:
     - 垂直和短距起落飞机
     - 善观风色，善择时机
     - 双水内冷汽轮发电机
-
   fontSize: 15px
-
-# 頭像會一直轉圈
-avatar_effect: true
 
 # 網站顯示模式
 # light 默認模式
 # dark 黑暗模式（不建議）
 display_mode: light
 
-# 美化post頁顯示
-post_beautify:
+# 美化頁面顯示
+beautify:
   enable: true
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: "#F47466"
@@ -654,7 +719,7 @@ post_beautify:
 # 全局字體
 font:
   enable: false
-  font-family: Lato, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, "MicrMicrosoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family: Lato, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, MicrMicrosoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif
   code-font: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace, Helvetica Neue For Number
 
 # 網站名字字體
@@ -670,29 +735,37 @@ hr:
   icon-top: -20px
 
 # 主頁subtitle
-# 打字效果
 subtitle:
   enable: true
+  # 打字效果
+  effect: true
+  # 循環或者只打字一次
+  loop: true
   # source調用第三方服務
   # source: false 關閉調用
   # source: 1  調用金山詞霸的每日一句（簡體）
-  # source: 2  調用一言网的一句話（簡體） #https://hitokoto.cn/
-  # source: 3  調用一句网（簡體） http://yijuzhan.com/
+  # source: 2  調用一言網的一句話（簡體） #https://hitokoto.cn/
+  # source: 3  調用一句網（簡體） http://yijuzhan.com/
   # source: 4  調用今日詩詞（簡體） https://www.jinrishici.com/
-  # subtitle 會先顯示 source , 再顯示 sub 的内容
-  source: 1
+  # subtitle 會先顯示 source , 再顯示 sub 的內容
+  source: 4
   # (如果有英文逗號' , '，請使用轉義字符 &#44;)
+  # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
   sub:
     - 天天开心，月月快乐，岁岁有鱼。
     - Good good study and day day up
 
+# fontawesome圖標
+# 默認使用的是 fontawesome v4版本的圖標
+fontawesome_v5:
+  enable: false
+
 ####    側邊欄    ####
 #-------------------------------------
-# 手機頁面（ 顯示寬度 < 768px ）是否顯示aside内容
-aside_mobile: true
-
 # 側邊欄顯示設置
 aside:
+  enable: true
+  mobile: true # 手機頁面（ 顯示寬度 < 768px ）是否顯示aside內容
   position: right # left or right
   card_author: true
   card_announcement: true
@@ -719,7 +792,6 @@ busuanzi:
 runtimeshow:
   enable: true
   start_date: 1/1/2016 00:00:00
-
 ####   右下角按鈕  ####
 #----------------------------------------------
 # 簡繁轉換
@@ -727,11 +799,11 @@ translate:
   enable: true
   # 默認按鈕顯示文字
   default: 繁
-  #网站默认语言，1: 繁體中文, 2: 简体中文
+  #網站默認語言，1: 繁體中文, 2: 簡體中文
   defaultEncoding: 2
-  #延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+  #延遲時間,若不在前, 要設定延遲翻譯時間, 如100表示100ms,默認為0
   translateDelay: 0
-  #博客网址
+  #博客網址
   cookieDomain: "https://www.happyshark.cn/"
   #當文字是簡體時，按鈕顯示的文字
   msgToTraditionalChinese: "繁"
@@ -742,15 +814,16 @@ translate:
 readmode:
   enable: true
 
-# 夜間模式
+# dark mode
 darkmode:
   enable: true
-
-# 自動切換 dark mode和 light mode
-# autoChangeMode: 1  跟隨系統而變化，不支持的瀏覽器/系統將按照時間晚上6點到早上6點之間切換為 dark mode
-# autoChangeMode: 2  只按照時間晚上6點到早上6點之間切換為 dark mode
-# autoChangeMode: false 取消自動切換
-autoChangeMode: 1
+  # dark mode和 light mode切換按鈕
+  button: true
+  # 自動切換 dark mode和 light mode
+  # autoChangeMode: 1  跟隨系統而變化，不支持的瀏覽器/系統將按照時間晚上6點到早上6點之間切換為 dark mode
+  # autoChangeMode: 2  只按照時間晚上6點到早上6點之間切換為 dark mode
+  # autoChangeMode: false 取消自動切換
+  autoChangeMode: 1
 
 ####    other     ####
 #------------------------------------------------
@@ -779,12 +852,18 @@ snackbar:
 
 #百度推送
 baidu_push:
-  enable: false
+  enable: true
 
 # https://instant.page/
 # prefetch預加載
 instantpage:
   enable: true
+
+# https://github.com/vinta/pangu.js
+# 中英文之間添加空格
+pangu:
+  enable: false
+  field: page # page/post
 
 # Note (Bootstrap Callout)
 # https://muse.theme-next.org/docs/tag-plugins/note
@@ -820,14 +899,15 @@ twitter_meta: true
 # https://i.loli.net/2019/09/08/2wbFJEKloisRvhj.png
 Open_Graph_meta: true
 
+# 開啟hexo自帶的緩存，加快生成速度
+fragment_cache: true
+
 # CDN
 # 網站必須
 # 可根據需要自行添加js/css
 CDN_USE:
   css:
     - /css/index.css
-    - https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
-    # - https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css #fontawesomeV5_css
 
   js:
     - https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js #/js/third-party/jquery.min.js
@@ -837,52 +917,65 @@ CDN_USE:
 # CDN
 # 非必要不要修改
 CDN:
-  #comments
-  blueimp_md5: https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js
+  # comments
+  blueimp_md5: https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
   gitalk_css: https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css
   valine: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
+  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqus.js
+  disqusjs_css: https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css
+  utterances: https://utteranc.es/client.js
 
   # share
   addtoany: https://static.addtoany.com/menu/page.js
   sharejs: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
   sharejs_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
 
-  #search
+  # search
+  local_search: /js/search/local-search.js
+  algolia_js: /js/search/algolia.js
   algolia_search: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js
   algolia_search_css: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css
 
+  # math
   mathjax: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   katex: https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css
   katex_copytex: https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js
   katex_copytex_css: https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
 
-  #不蒜子計數器
+  # count
   busuanzi: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
 
-  # 背景特效
-  canvas_ribbon: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-ribbon.js
-  canvas_ribbon_piao: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/piao.js
-  canvas_nest: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-nest.js
+  # background effect
+  canvas_ribbon: /js/third-party/canvas-ribbon.js
+  canvas_ribbon_piao: /js/third-party/piao.js
+  canvas_nest: /js/third-party/canvas-nest.js
 
   lazyload: https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js
   instantpage: https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js
-
   typed: https://cdn.jsdelivr.net/npm/typed.js
   js_cookies: https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js
+  pangu: https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js
 
+  # photo
   fancybox_css: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css
   fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
   medium_zoom: https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js
 
+  # snackbar
   snackbar_css: https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css
   snackbar: https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js
 
-  #鼠标点击特效
+  # 鼠標點擊特效
   anime: https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js
-  activate_power_mode: https://cdn.jsdelivr.net/npm/activate-power-mode/dist/activate-power-mode.min.js
-  fireworks: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/fireworks.js
-  click_heart: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js
-  ClickShowText: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/ClickShowText.js
+  activate_power_mode: /js/third-party/activate-power-mode.js
+  fireworks: /js/third-party/fireworks.js
+  click_heart: /js/third-party/click_heart.js
+  ClickShowText: /js/third-party/ClickShowText.js
+
+  # fontawesome
+  fontawesome_v4: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
+  fontawesome_v5: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
 
   translate: /js/tw_cn.js
