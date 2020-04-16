@@ -1,5 +1,6 @@
 ---
 title: windows XP安装pyqt5和pyinstaller的坑
+date: 2019-3-24 14:00:00
 tags: [windowsXP, pyqt5]
 categories: python
 description: 
