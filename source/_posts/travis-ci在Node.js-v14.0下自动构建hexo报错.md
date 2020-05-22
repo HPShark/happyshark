@@ -1,5 +1,6 @@
 ---
 title: travis-ci在Node.js v14.0下自动构建hexo报错
+date: 2020-5-22 16:00:00
 tags: [hexo, travis CI]
 categories: 博客
 description: 
