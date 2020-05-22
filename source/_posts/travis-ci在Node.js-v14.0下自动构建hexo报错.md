@@ -7,7 +7,7 @@ description:
 cover: https://cdn.jsdelivr.net/gh/HPShark/blogimages@master/node14bug/编译错误.png
 ---
 
-{% meting "41500546" "netease" "song" %}
+{% meting "41500546" "netease" "song" "autoplay" %}
 
 ---
 
