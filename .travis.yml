@@ -1,5 +1,5 @@
 language: node_js # 设置语言
-node_js: stable # 设置相应版本
+node_js: 12.14.1 # 设置相应版本，14.0会报错，别用stable了
 
 # cache:
 #     apt: true
