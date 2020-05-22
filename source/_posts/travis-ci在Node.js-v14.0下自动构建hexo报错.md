@@ -46,6 +46,32 @@ INFO  Files loaded in 3.93 s
 
 在travis.yml里面的Node.js版本那里把**stable**改成指定版本号就行，错误已经提交至hexo项目的issue，估计过一段时间就能修复
 
+# 附travis.yml中的language用法
+
+```yaml
+language: node_js
+node_js:
+  - 7
+```
+
+其中版本号可填如下内容：
+
+- `node` latest stable Node.js release
+
+- `lts/*` latest LTS Node.js release
+
+- `14` latest 14.x release
+
+- `13` latest 13.x release
+
+- `12` latest 12.x release
+
+- `11` latest 11.x release
+
+- `10` latest 10.x release
+
+> 参考自https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+
 # 吐槽
 
 有点想换GitHub Actions了...
